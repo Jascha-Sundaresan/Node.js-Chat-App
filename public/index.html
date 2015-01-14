@@ -3,10 +3,22 @@
   <head>
     <title>Chat App</title>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/chat.js"></script>
+    <script src="/javascripts/chat_ui.js"></script>
   </head>
   <body>
-    <messages>test</messages>
-    <message-input></message-input>
+    <messages></messages>
+    <form>
+      <textarea></textarea>
+      <button>submit</button>
+    </form>
+
+    <script type="text/javascript">
+      var socket = io();
+      var chat = new ChatApp.Chat(socket);
+      new ChatApp.ChatUI(chat);
+    </script>
 
   </body>
 </html>
